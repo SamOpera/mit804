@@ -23,7 +23,7 @@
 *{box-sizing:border-box}
 body{
   margin:0;background:var(--ink);color:var(--parchment);
-  font-family:var(--sans);font-size:16px;line-height:1.55;
+  font-family:var(--sans);font-size:18px;line-height:1.6;
   -webkit-text-size-adjust:100%;
 }
 .wrap{max-width:46rem;margin:0 auto;padding-inline:16px;padding-block:0 48px}
@@ -35,8 +35,8 @@ body{
   padding-block:12px 10px;
 }
 .railtop{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.code{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.tally{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.code{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.tally{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tally b{color:var(--parchment);font-weight:500}
 .bar{height:4px;background:var(--line);border-radius:999px;overflow:hidden;margin-top:9px}
 .bar i{display:block;height:100%;background:var(--gold);border-radius:999px;transition:width .25s ease}
@@ -44,7 +44,15 @@ body{
 /* start screen */
 h1{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:28px 0 10px;text-wrap:balance}
 .lede{color:var(--muted);margin:0 0 26px;max-width:40rem}
-.sets{display:grid;gap:10px;margin-bottom:26px}
+.sets{display:grid;gap:10px;margin-bottom:22px}
+.begin{
+  display:block;width:100%;cursor:pointer;
+  background:var(--gold);color:#17120a;border:none;border-radius:12px;
+  padding:19px 22px;font:inherit;font-weight:600;font-size:1.15rem;
+}
+.begin:hover{background:#d4ae5c}
+.begin span{display:block;font-weight:400;font-size:.85rem;color:#4a3a18;margin-top:3px}
+.orline{font-size:14px;color:var(--muted);margin:24px 0 10px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .set{
   display:flex;align-items:center;justify-content:space-between;gap:14px;
   width:100%;text-align:left;cursor:pointer;
@@ -56,17 +64,17 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,5vw,2.1rem)
 .set .nm{font-weight:600}
 .set .sub{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 .set .ct{font-family:var(--mono);font-size:13px;color:var(--gold);white-space:nowrap;font-variant-numeric:tabular-nums}
-.note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.note{font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
 .note strong{color:var(--parchment);font-weight:500}
 
 /* question card */
 .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0 12px}
-.badge{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(199,160,74,.4);border-radius:999px;padding:3px 9px}
+.badge{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(199,160,74,.4);border-radius:999px;padding:3px 9px}
 .badge.pred{color:#9a8fd8;border-color:rgba(154,143,216,.45)}
-.pos{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.stem{font-size:1.06rem;margin:0 0 6px;white-space:pre-wrap}
+.pos{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stem{font-size:1.2rem;line-height:1.5;margin:0 0 6px;white-space:pre-wrap}
 pre.code{
-  font-family:var(--mono);font-size:13px;line-height:1.5;
+  font-family:var(--mono);font-size:14.5px;line-height:1.55;
   background:#0b0e14;border:1px solid var(--line);border-radius:10px;
   padding:13px 15px;overflow-x:auto;margin:12px 0 0;white-space:pre;
 }
@@ -77,12 +85,12 @@ pre.code{
 .opt{
   display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
   background:var(--raised);border:1px solid var(--line);border-radius:11px;
-  padding:13px 15px;color:var(--parchment);font:inherit;cursor:pointer;min-width:0;
+  padding:16px 17px;color:var(--parchment);font:inherit;font-size:1.05rem;cursor:pointer;min-width:0;
 }
 .opt:hover:not(:disabled){border-color:rgba(199,160,74,.5)}
 .opt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .opt:disabled{cursor:default}
-.opt .ltr{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px;flex:none;width:1.1em}
+.opt .ltr{font-family:var(--mono);font-size:14px;color:var(--muted);padding-top:2px;flex:none;width:1.2em}
 .opt .txt{min-width:0;overflow-wrap:break-word}
 .opt.right{border-color:var(--right);background:rgba(78,168,122,.13)}
 .opt.right .ltr{color:var(--right)}
@@ -90,7 +98,7 @@ pre.code{
 .opt.wrong .ltr{color:var(--wrong)}
 .opt.dim{opacity:.5}
 
-.verdict{margin-top:16px;font-size:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.verdict{margin-top:18px;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .verdict .v{font-weight:600}
 .verdict .v.ok{color:var(--right)}
 .verdict .v.no{color:var(--wrong)}
@@ -99,12 +107,12 @@ pre.code{
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 button.go{
   background:var(--gold);color:#17120a;border:none;border-radius:10px;
-  padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;
+  padding:15px 26px;font:inherit;font-size:1.05rem;font-weight:600;cursor:pointer;
 }
 button.go:hover{background:#d4ae5c}
 button.ghost{
   background:transparent;color:var(--muted);border:1px solid var(--line);
-  border-radius:10px;padding:12px 18px;font:inherit;cursor:pointer;
+  border-radius:10px;padding:15px 20px;font:inherit;font-size:1.02rem;cursor:pointer;
 }
 button.ghost:hover{color:var(--parchment);border-color:var(--gold)}
 button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -113,9 +121,9 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .score{font-family:var(--display);font-size:3rem;line-height:1;margin:6px 0 4px;font-variant-numeric:tabular-nums}
 .pct{color:var(--muted);margin:0 0 24px}
 .missed{display:grid;gap:8px;margin:18px 0 0;padding:0;list-style:none}
-.missed li{background:var(--raised);border:1px solid var(--line);border-left:3px solid var(--wrong);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px}
-.missed .ans{display:block;margin-top:6px;color:var(--right);font-size:13px}
-.kbd{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:22px}
+.missed li{background:var(--raised);border:1px solid var(--line);border-left:3px solid var(--wrong);border-radius:0 10px 10px 0;padding:14px 16px;font-size:16px}
+.missed .ans{display:block;margin-top:7px;color:var(--right);font-size:15px}
+.kbd{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:24px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -133,7 +141,10 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   <!-- START -->
   <section id="start">
     <h1>MIT804 exam drill</h1>
-    <p class="lede">184 objective questions. Tap an answer and it marks straight away. Your place is kept if you close the tab.</p>
+    <p class="lede">Tap an answer and it marks straight away. Your place is kept if you close the tab.</p>
+    <button class="begin" id="bAll" type="button">Start</button>
+    <div id="resumeBox"></div>
+    <p class="orline">Or drill one set on its own</p>
     <div class="sets" id="sets"></div>
     <p class="note"><strong>About the predicted set.</strong> Those 73 are not past questions. They were written over this year's class work, in the shapes the real paper uses, and every figure in them came from actually compiling and running the class code. Practise them as drills, not as leaks.</p>
   </section>
@@ -214,9 +225,16 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   ];
 
   function drawStart() {
+    var all = ALL.length;
+    el("bAll").textContent = "";
+    el("bAll").appendChild(document.createTextNode("Start all " + all + " questions"));
+    var sub = document.createElement("span");
+    sub.textContent = "Every set, shuffled together";
+    el("bAll").appendChild(sub);
+
     var box = el("sets");
     box.textContent = "";
-    SETS.forEach(function (s) {
+    SETS.filter(function (s) { return s.id !== "all"; }).forEach(function (s) {
       var n = ALL.filter(s.f).length;
       var b = document.createElement("button");
       b.className = "set";
@@ -225,10 +243,10 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
       var nm = document.createElement("span");
       nm.className = "nm";
       nm.textContent = s.nm;
-      var sub = document.createElement("span");
-      sub.className = "sub";
-      sub.textContent = s.sub;
-      left.appendChild(nm); left.appendChild(sub);
+      var sb = document.createElement("span");
+      sb.className = "sub";
+      sb.textContent = s.sub;
+      left.appendChild(nm); left.appendChild(sb);
       var ct = document.createElement("span");
       ct.className = "ct";
       ct.textContent = n;
@@ -237,11 +255,14 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
       box.appendChild(b);
     });
 
+    var rbox = el("resumeBox");
+    rbox.textContent = "";
     var saved = load();
     if (saved && saved.at < saved.order.length) {
       var r = document.createElement("button");
       r.className = "set";
       r.type = "button";
+      r.style.marginTop = "10px";
       var l2 = document.createElement("span");
       var n2 = document.createElement("span");
       n2.className = "nm";
@@ -255,7 +276,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
       c2.textContent = (saved.order.length - saved.at) + " left";
       r.appendChild(l2); r.appendChild(c2);
       r.addEventListener("click", function () { state = saved; show("quiz"); render(); });
-      box.insertBefore(r, box.firstChild);
+      rbox.appendChild(r);
     }
   }
 
@@ -423,6 +444,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
     render();
   }
 
+  el("bAll").addEventListener("click", function () { begin("all"); });
   el("bNext").addEventListener("click", next);
   el("bQuit").addEventListener("click", function () { state.order = state.order.slice(0, state.at + (current.locked ? 1 : 0)); finish(); });
   el("bRetry").addEventListener("click", retryMissed);
